@@ -1,0 +1,59 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Instantiate (4.0.0)
+  - InstantiateStandard (4.0.0):
+    - Instantiate (~> 4.0)
+  - Kingfisher (5.14.1):
+    - Kingfisher/Core (= 5.14.1)
+  - Kingfisher/Core (5.14.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - Moya/RxSwift (13.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - PKHUD (5.3.0)
+  - Result (4.1.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
+  - SkeletonView (1.8.7)
+
+DEPENDENCIES:
+  - Instantiate
+  - InstantiateStandard
+  - Kingfisher
+  - Moya/RxSwift (~> 13.0)
+  - PKHUD (~> 5.0)
+  - RxCocoa
+  - RxSwift
+  - SkeletonView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Instantiate
+    - InstantiateStandard
+    - Kingfisher
+    - Moya
+    - PKHUD
+    - Result
+    - RxCocoa
+    - RxSwift
+    - SkeletonView
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Instantiate: 62516e7dde448721c1f5815a9ee7e0669d034d52
+  InstantiateStandard: 18ab1417ba787113350c71a5b2251f0b4448be67
+  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
+
+PODFILE CHECKSUM: ef8d2c9650238efbd6f0fba9b70dc1442da44d31
+
+COCOAPODS: 1.8.3
