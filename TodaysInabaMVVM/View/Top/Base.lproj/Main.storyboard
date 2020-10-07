@@ -82,6 +82,11 @@
                             <constraint firstAttribute="bottom" secondItem="y3F-xl-7Vx" secondAttribute="bottom" constant="60" id="xdF-rz-frE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateTextField" destination="m6g-qb-9WY" id="byn-nR-KiT"/>
+                        <outlet property="historyBotton" destination="4ib-Ag-X9Q" id="dIJ-ww-eEq"/>
+                        <outlet property="nameTextField" destination="uOk-kC-RUS" id="k1L-bH-se4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
