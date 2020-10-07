@@ -11,7 +11,7 @@ import RxSwift
 
 final class APIModel {
     
-    let provider = MoyaProvider<API>()
+    private static let provider = MoyaProvider<API>()
     
     static func getTodaysInabaImages() -> Observable<GoogleData> {
         return provider.rx.request(

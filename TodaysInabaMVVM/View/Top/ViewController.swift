@@ -14,6 +14,7 @@ import InstantiateStandard
 class ViewController: UIViewController, StoryboardInstantiatable {
     
     let disposeBag = DisposeBag()
+    let viewModel = TopViewModel()
     
     @IBOutlet weak var historyBotton: UIButton!
     @IBOutlet weak var dateTextField: UITextField!
@@ -23,7 +24,14 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //input
+        viewModel.userName.onNext("")
         
+        //output
+        viewModel.todaysInabaResponse
+            .subscribe(onNext: { element in
+                print("vc_response: \(element)")
+            }).disposed(by: disposeBag)
     }
 
 
