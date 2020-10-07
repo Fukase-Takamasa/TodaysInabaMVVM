@@ -18,6 +18,9 @@
 		59358D0925205E2F004E39F7 /* TodaysInabaMVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59358D0825205E2F004E39F7 /* TodaysInabaMVVMTests.swift */; };
 		59358D1425205E2F004E39F7 /* TodaysInabaMVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59358D1325205E2F004E39F7 /* TodaysInabaMVVMUITests.swift */; };
 		59EF3104252E140800D47DE3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF3103252E140800D47DE3 /* API.swift */; };
+		59EF3109252E14D200D47DE3 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF3108252E14D200D47DE3 /* TopViewModel.swift */; };
+		59EF310E252E187C00D47DE3 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF310D252E187C00D47DE3 /* APIModel.swift */; };
+		59EF3113252E1C0300D47DE3 /* GoogleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF3112252E1C0300D47DE3 /* GoogleData.swift */; };
 		9686CAFCF7FEB0D83F0BA14B /* Pods_TodaysInabaMVVMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4351B8F6F5E6E6E8E85389BC /* Pods_TodaysInabaMVVMTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +60,9 @@
 		59358D1525205E2F004E39F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		599CC9EFA783F38AD1E62897 /* Pods_TodaysInabaMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodaysInabaMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EF3103252E140800D47DE3 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		59EF3108252E14D200D47DE3 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
+		59EF310D252E187C00D47DE3 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
+		59EF3112252E1C0300D47DE3 /* GoogleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleData.swift; sourceTree = "<group>"; };
 		64376916FD920ED43B25C0BE /* Pods-TodaysInabaMVVMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodaysInabaMVVMTests.release.xcconfig"; path = "Target Support Files/Pods-TodaysInabaMVVMTests/Pods-TodaysInabaMVVMTests.release.xcconfig"; sourceTree = "<group>"; };
 		89357119DF5E700C79CD6091 /* Pods-TodaysInabaMVVMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodaysInabaMVVMTests.debug.xcconfig"; path = "Target Support Files/Pods-TodaysInabaMVVMTests/Pods-TodaysInabaMVVMTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C823AFC976D57B9B45C2E70 /* Pods-TodaysInabaMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodaysInabaMVVM.release.xcconfig"; path = "Target Support Files/Pods-TodaysInabaMVVM/Pods-TodaysInabaMVVM.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				59EF3103252E140800D47DE3 /* API.swift */,
+				59EF3112252E1C0300D47DE3 /* GoogleData.swift */,
+				59EF310D252E187C00D47DE3 /* APIModel.swift */,
 				593ED647252E0B1000AF0255 /* Top */,
 				593ED648252E0B1400AF0255 /* Result */,
 				593ED649252E0B1C00AF0255 /* History */,
@@ -208,6 +216,7 @@
 		593ED643252E0AF000AF0255 /* Top */ = {
 			isa = PBXGroup;
 			children = (
+				59EF3108252E14D200D47DE3 /* TopViewModel.swift */,
 			);
 			path = Top;
 			sourceTree = "<group>";
@@ -507,7 +516,10 @@
 			files = (
 				59358CF625205E2E004E39F7 /* ViewController.swift in Sources */,
 				59358CF225205E2E004E39F7 /* AppDelegate.swift in Sources */,
+				59EF3113252E1C0300D47DE3 /* GoogleData.swift in Sources */,
+				59EF3109252E14D200D47DE3 /* TopViewModel.swift in Sources */,
 				59EF3104252E140800D47DE3 /* API.swift in Sources */,
+				59EF310E252E187C00D47DE3 /* APIModel.swift in Sources */,
 				59358CF425205E2E004E39F7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
