@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -128,8 +128,9 @@
 			children = (
 				59358CF125205E2E004E39F7 /* AppDelegate.swift */,
 				59358CF325205E2E004E39F7 /* SceneDelegate.swift */,
-				59358CF525205E2E004E39F7 /* ViewController.swift */,
-				59358CF725205E2E004E39F7 /* Main.storyboard */,
+				593ED63D252E0A9D00AF0255 /* Model */,
+				593ED63F252E0AAF00AF0255 /* ViewModel */,
+				593ED640252E0AB800AF0255 /* View */,
 				59358CFA25205E2F004E39F7 /* Assets.xcassets */,
 				59358CFC25205E2F004E39F7 /* LaunchScreen.storyboard */,
 				59358CFF25205E2F004E39F7 /* Info.plist */,
@@ -155,6 +156,101 @@
 			path = TodaysInabaMVVMUITests;
 			sourceTree = "<group>";
 		};
+		593ED63D252E0A9D00AF0255 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				593ED647252E0B1000AF0255 /* Top */,
+				593ED648252E0B1400AF0255 /* Result */,
+				593ED649252E0B1C00AF0255 /* History */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		593ED63F252E0AAF00AF0255 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				593ED643252E0AF000AF0255 /* Top */,
+				593ED644252E0AF900AF0255 /* Result */,
+				593ED645252E0AFF00AF0255 /* History */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		593ED640252E0AB800AF0255 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				593ED641252E0ACD00AF0255 /* Top */,
+				593ED642252E0AD800AF0255 /* Result */,
+				593ED646252E0B0900AF0255 /* History */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		593ED641252E0ACD00AF0255 /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				59358CF525205E2E004E39F7 /* ViewController.swift */,
+				59358CF725205E2E004E39F7 /* Main.storyboard */,
+			);
+			path = Top;
+			sourceTree = "<group>";
+		};
+		593ED642252E0AD800AF0255 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		593ED643252E0AF000AF0255 /* Top */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Top;
+			sourceTree = "<group>";
+		};
+		593ED644252E0AF900AF0255 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		593ED645252E0AFF00AF0255 /* History */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		593ED646252E0B0900AF0255 /* History */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		593ED647252E0B1000AF0255 /* Top */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Top;
+			sourceTree = "<group>";
+		};
+		593ED648252E0B1400AF0255 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		593ED649252E0B1C00AF0255 /* History */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		63ADC2091D4A969024E1CDA7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +261,6 @@
 				89357119DF5E700C79CD6091 /* Pods-TodaysInabaMVVMTests.debug.xcconfig */,
 				64376916FD920ED43B25C0BE /* Pods-TodaysInabaMVVMTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
