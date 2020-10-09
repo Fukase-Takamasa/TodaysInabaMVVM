@@ -46,6 +46,9 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                 vc.viewModel = ResultViewModel(resultImageUrl: resultImageUrl)
                 self.present(vc, animated: true, completion: {
                     self.nameTextField.text = ""
+                    
+                    //UDに保存
+                    UserDefaultsModel.saveUrl(value: resultImageUrl)
                 })
                 
             }).disposed(by: disposeBag)
