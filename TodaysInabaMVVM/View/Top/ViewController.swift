@@ -25,6 +25,7 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         super.viewDidLoad()
 
         setupDatePicker()
+        nameTextField.returnKeyType = .done
         
         //input
         nameTextField.rx.controlEvent(.editingDidEnd)
@@ -43,7 +44,9 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                 
                 let vc = ResultViewController.instantiate()
                 vc.viewModel = ResultViewModel(resultImageUrl: resultImageUrl)
-                self.present(vc, animated: true, completion: nil)
+                self.present(vc, animated: true, completion: {
+                    self.nameTextField.text = ""
+                })
                 
             }).disposed(by: disposeBag)
     }
