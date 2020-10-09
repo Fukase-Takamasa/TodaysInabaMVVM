@@ -15,6 +15,7 @@ class ViewController: UIViewController, StoryboardInstantiatable {
     
     let disposeBag = DisposeBag()
     let viewModel = TopViewModel()
+    var datePicker = UIDatePicker()
     
     @IBOutlet weak var historyBotton: UIButton!
     @IBOutlet weak var dateTextField: UITextField!
@@ -25,7 +26,9 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         // Do any additional setup after loading the view.
         
         //input
-        viewModel.userName.onNext("")
+        nameTextField.rx.text.orEmpty
+            .bind(to: viewModel.userName)
+            .disposed(by: disposeBag)
         
         //output
         viewModel.todaysInabaResponse
@@ -40,7 +43,36 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                 
             }).disposed(by: disposeBag)
     }
-
-
+    
+    @objc func done() {
+        view.endEditing(true)
+    }
+    
+    func setupDatePicker() {
+        datePicker.preferredDatePickerStyle = .compact
+        datePicker.frame = dateTextField.frame
+        dateTextField.backgroundColor = .clear
+        dateTextField.addSubview(datePicker)
+        dateTextField.placeholder = ""
+        datePicker.datePickerMode = .date
+        datePicker.timeZone = NSTimeZone.local
+        datePicker.locale = .current
+        datePicker.tintColor = UIColor(red: 33/255, green: 173/255, blue: 182/255, alpha: 1)
+        dateTextField.inputView = datePicker
+        dateTextField.inputView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    }
+    
 }
 
+extension ViewController: UITextFieldDelegate {
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//
+//        if !(nameTextField.text?.isEmpty ?? true) {
+//            print("名前の入力が完了しました")
+//            searchRequest()
+//        }
+//        return true
+//    }
+}
