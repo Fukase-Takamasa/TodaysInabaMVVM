@@ -25,8 +25,10 @@ class TopViewModel {
         self.todaysInabaResponse = _todaysInabaResponse.asObservable()
         
         //input
-        self.userName = AnyObserver<String>() { event in 
-//            guard let text = event.element else {return}
+        self.userName = AnyObserver<String>() { event in
+            guard let text = event.element else {return}
+            guard !text.isEmpty else {return}
+            
             APIModel.getTodaysInabaImages()
                 .bind(to: _todaysInabaResponse)
                 .disposed(by: disposeBag)

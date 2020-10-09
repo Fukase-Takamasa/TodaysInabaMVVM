@@ -23,12 +23,16 @@ class ViewController: UIViewController, StoryboardInstantiatable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        setupDatePicker()
         
         //input
-        nameTextField.rx.text.orEmpty
-            .bind(to: viewModel.userName)
-            .disposed(by: disposeBag)
+        nameTextField.rx.controlEvent(.editingDidEnd)
+            .withLatestFrom(nameTextField.rx.text.orEmpty)
+            .subscribe(onNext: { [weak self] element in
+                guard let self = self else {return}
+                self.viewModel.userName.onNext(element)
+            }).disposed(by: disposeBag)
         
         //output
         viewModel.todaysInabaResponse
@@ -42,10 +46,6 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                 self.present(vc, animated: true, completion: nil)
                 
             }).disposed(by: disposeBag)
-    }
-    
-    @objc func done() {
-        view.endEditing(true)
     }
     
     func setupDatePicker() {
@@ -62,17 +62,4 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         dateTextField.inputView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
-}
-
-extension ViewController: UITextFieldDelegate {
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//
-//        if !(nameTextField.text?.isEmpty ?? true) {
-//            print("名前の入力が完了しました")
-//            searchRequest()
-//        }
-//        return true
-//    }
 }
