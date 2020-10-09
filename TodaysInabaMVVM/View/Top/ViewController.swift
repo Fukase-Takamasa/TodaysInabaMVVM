@@ -31,6 +31,13 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         viewModel.todaysInabaResponse
             .subscribe(onNext: { element in
                 print("vc_response: \(element)")
+                
+                let resultImageUrl = element.items[Int.random(in: 0...9)].link
+                
+                let vc = ResultViewController.instantiate()
+                vc.viewModel = ResultViewModel(resultImageUrl: resultImageUrl)
+                self.present(vc, animated: true, completion: nil)
+                
             }).disposed(by: disposeBag)
     }
 

@@ -14,13 +14,13 @@ class ResultViewModel {
     //input
     
     //output
-    let todaysInabaData: GoogleData?
+    let resultImageUrl: String?
     
-    init(todaysInabaData: GoogleData?) {
+    init(resultImageUrl: String?) {
         let disposeBag = DisposeBag()
         
         //output
-        self.todaysInabaData = todaysInabaData
+        self.resultImageUrl = resultImageUrl
         
         //input
     }
