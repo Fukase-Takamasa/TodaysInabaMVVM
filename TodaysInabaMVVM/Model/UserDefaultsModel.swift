@@ -12,19 +12,16 @@ final class UserDefaultsModel {
     //MARK: - Properties
     private static let ud = UserDefaults.standard
     
-    //MARK: - Init
-    init() {
-        UserDefaultsModel.ud.setValue([String](), forKey: "imageUrlArr")
-    }
-    
     //MARK: - Methods
     static func saveUrl(value: String) {
         guard var imageUrlArr = ud.value(forKey: "imageUrlArr") as? [String] else {
-            print("imageUrlArr取得失敗")
+            print("imageUrlArrが存在しないので空の配列を作成")
+            UserDefaultsModel.ud.setValue([String](), forKey: "imageUrlArr")
             return
         }
         imageUrlArr.insert(value, at: 0)
         ud.setValue(imageUrlArr, forKey: "imageUrlArr")
+        print("set")
     }
     
     static func getUrlArr() -> [String] {
@@ -34,5 +31,6 @@ final class UserDefaultsModel {
             print("imageUrlArr取得失敗")
             return []
         }
+        print("get")
     }
 }
