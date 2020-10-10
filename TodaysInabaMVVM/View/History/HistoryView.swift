@@ -10,22 +10,19 @@ import struct Kingfisher.KFImage
 
 struct HistoryView: View {
     
-    @State var imageUrlArr: [String] = []
+    @ObservedObject var viewModel = HistoryViewModel()
     
     var body: some View {
         GeometryReader { bodyView in
             ScrollView(.vertical) {
                 LazyVGrid(columns: Array(repeating: GridItem(), count: 2), spacing: 0) {
-                    ForEach(0..<self.imageUrlArr.count, id: \.self) { index in
-                        KFImage(URL(string: self.imageUrlArr[index]))
+                    ForEach(0..<self.viewModel.imageUrlArr.count, id: \.self) { index in
+                        KFImage(URL(string: self.viewModel.imageUrlArr[index]))
                             .resizable()
                             .scaledToFit()
                             .frame(width: bodyView.size.width / 2, height: bodyView.size.width / 2)
                     }
                 }
-            }
-            .onAppear {
-                self.imageUrlArr = UserDefaultsModel.getUrlArr()
             }
         }
     }
