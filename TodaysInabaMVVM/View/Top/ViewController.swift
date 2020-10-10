@@ -31,24 +31,24 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         nameTextField.rx.controlEvent(.editingDidEnd)
             .withLatestFrom(nameTextField.rx.text.orEmpty)
             .subscribe(onNext: { [weak self] element in
-                guard let self = self else {return}
-                self.viewModel.userName.onNext(element)
+                self?.viewModel.userName.onNext(element)
             }).disposed(by: disposeBag)
         
         //output
         viewModel.todaysInabaResponse
-            .subscribe(onNext: { element in
+            .subscribe(onNext: { [weak self] element in
                 print("vc_response: \(element)")
                 
                 let resultImageUrl = element.items[Int.random(in: 0...9)].link
                 
                 let vc = ResultViewController.instantiate()
                 vc.viewModel = ResultViewModel(resultImageUrl: resultImageUrl)
-                self.present(vc, animated: true, completion: {
-                    self.nameTextField.text = ""
+                self?.present(vc, animated: true, completion: {
                     
+                    self?.nameTextField.text = ""
                     //UDに保存
                     UserDefaultsModel.saveUrl(value: resultImageUrl)
+                    
                 })
                 
             }).disposed(by: disposeBag)
