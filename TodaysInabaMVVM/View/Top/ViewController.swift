@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import Instantiate
 import InstantiateStandard
+import SwiftUI
 
 class ViewController: UIViewController, StoryboardInstantiatable {
     
@@ -51,6 +52,12 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                     
                 })
                 
+            }).disposed(by: disposeBag)
+        
+        //other
+        historyBotton.rx.tap
+            .subscribe(onNext: { [weak self] element in
+                self?.present(UIHostingController(rootView: HistoryView()), animated: true)
             }).disposed(by: disposeBag)
     }
     
