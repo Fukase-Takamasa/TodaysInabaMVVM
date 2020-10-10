@@ -3,9 +3,9 @@ PODS:
   - Instantiate (4.0.0)
   - InstantiateStandard (4.0.0):
     - Instantiate (~> 4.0)
-  - Kingfisher (5.14.1):
-    - Kingfisher/Core (= 5.14.1)
   - Kingfisher/Core (5.14.1)
+  - Kingfisher/SwiftUI (5.14.1):
+    - Kingfisher/Core
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
@@ -22,7 +22,7 @@ PODS:
 DEPENDENCIES:
   - Instantiate
   - InstantiateStandard
-  - Kingfisher
+  - Kingfisher/SwiftUI
   - Moya/RxSwift (~> 13.0)
   - PKHUD (~> 5.0)
   - RxCocoa
@@ -54,6 +54,6 @@ SPEC CHECKSUMS:
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
 
-PODFILE CHECKSUM: ef8d2c9650238efbd6f0fba9b70dc1442da44d31
+PODFILE CHECKSUM: 0169f0df5d0941f9df85101404b1337fddf20bd3
 
 COCOAPODS: 1.8.3

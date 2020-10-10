@@ -9,7 +9,7 @@ target 'TodaysInabaMVVM' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'PKHUD', '~> 5.0'
-  pod 'Kingfisher'
+  pod 'Kingfisher/SwiftUI'
   pod "SkeletonView"
   pod 'Moya/RxSwift', '~> 13.0'
   pod 'Instantiate'
