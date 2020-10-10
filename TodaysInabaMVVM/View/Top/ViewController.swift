@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import Instantiate
 import InstantiateStandard
+import PKHUD
 import SwiftUI
 
 class ViewController: UIViewController, StoryboardInstantiatable {
@@ -52,6 +53,12 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                     
                 })
                 
+            }).disposed(by: disposeBag)
+        
+        //通信状態に応じてインジケータを表示
+        viewModel.isFetching
+            .subscribe(onNext: { element in
+                element ? HUD.show(.progress) : HUD.hide()
             }).disposed(by: disposeBag)
         
         //other
