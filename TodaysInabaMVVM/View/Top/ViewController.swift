@@ -45,7 +45,7 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                 
                 let vc = ResultViewController.instantiate()
                 vc.viewModel = ResultViewModel(resultImageUrl: resultImageUrl)
-                vc.modalPresentationStyle = .overCurrentContext
+//                vc.modalPresentationStyle = .overCurrentContext
                 self?.present(vc, animated: true, completion: {
                     
                     self?.nameTextField.text = ""
