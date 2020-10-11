@@ -56,6 +56,19 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                 
             }).disposed(by: disposeBag)
         
+        viewModel.error
+            .subscribe(onNext: { [weak self] element in
+                print("vc_error: \(element)")
+                
+                let alert = UIAlertController(title: "通信に失敗しました。",
+                                              message: element.localizedDescription,
+                                              preferredStyle: .alert)
+                let ok = UIAlertAction(title: "閉じる", style: .default, handler: nil)
+                alert.addAction(ok)
+                self?.present(alert, animated: true)
+                
+            }).disposed(by: disposeBag)
+        
         //通信状態に応じてインジケータを表示
         viewModel.isFetching
             .subscribe(onNext: { element in
