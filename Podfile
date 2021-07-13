@@ -14,6 +14,7 @@ target 'TodaysInabaMVVM' do
   pod 'Moya/RxSwift', '~> 13.0'
   pod 'Instantiate'
   pod 'InstantiateStandard'
+  pod 'RealmSwift'
 
   target 'TodaysInabaMVVMTests' do
     inherit! :search_paths
