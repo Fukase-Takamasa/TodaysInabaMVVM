@@ -19,10 +19,11 @@ class TopViewModel {
     let error: Observable<Error>
     let isFetching: Observable<Bool>
     
+    private let disposeBag = DisposeBag()
+
     init() {
-        let disposeBag = DisposeBag()
+        let store = Store.shard
         
-        //output
         let _todaysInabaResponse = PublishRelay<GoogleData>()
         self.todaysInabaResponse = _todaysInabaResponse.asObservable()
         
@@ -32,6 +33,22 @@ class TopViewModel {
         let _isFetching = PublishRelay<Bool>()
         self.isFetching = _isFetching.asObservable()
         
+        
+        //output
+        let _ = store.response
+            .subscribe(onNext: { element in
+                _todaysInabaResponse.accept(element)
+                _isFetching.accept(false)
+            }).disposed(by: disposeBag)
+        
+        let _ = store.error
+            .subscribe(onNext: { element in
+                _error.accept(element)
+                _isFetching.accept(false)
+            }).disposed(by: disposeBag)
+        
+        
+        
         //input
         self.userName = AnyObserver<String>() { event in
             guard let text = event.element else {return}
@@ -39,26 +56,7 @@ class TopViewModel {
             
             _isFetching.accept(true)
             
-            APIModel.getTodaysInabaImages()
-                .subscribe({ event in
-                    
-                    switch event {
-                    case let .next(response):
-                        print("vm_next: \(response)")
-                        _todaysInabaResponse.accept(response)
-                        
-                    case let .error(error):
-                        print("vm_error: \(error)")
-                        _error.accept(error)
-
-                    case .completed:
-                        print("vm_completed")
-                        break
-                    }
-                    
-                    _isFetching.accept(false)
-                    
-                }).disposed(by: disposeBag)
+            APIModel.getInaba()
         }
     }
 }
