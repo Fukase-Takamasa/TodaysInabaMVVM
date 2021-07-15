@@ -27,11 +27,12 @@ class ResultViewController: UIViewController, StoryboardInstantiatable {
         imageView.isSkeletonable = true
         imageView.showAnimatedGradientSkeleton()
         
-        guard let resultImageUrl = viewModel?.resultImageUrl else {return}
-        
-        imageView.kf.setImage(with: URL(string: resultImageUrl), completionHandler:  { _ in
-            self.imageView.hideSkeleton()
-        })
+        //output
+        let _ = viewModel?.todaysInabaResponse
+            .subscribe(onNext: { [weak self] element in
+                guard let self = self else {return}
+                self.showRandomImage(response: element)
+            }).disposed(by: disposeBag)
         
         //other
         let _ = toTopPageButton.rx.tap
@@ -39,6 +40,16 @@ class ResultViewController: UIViewController, StoryboardInstantiatable {
                 self?.dismiss(animated: true, completion: nil)
             }).disposed(by: disposeBag)
         
+    }
+    
+    func showRandomImage(response: ImageSearchResponse?) {
+        guard let resultImageUrl = response?.items[Int.random(in: 0...9)].link else {return}
+        imageView.kf.setImage(with: URL(string: resultImageUrl), completionHandler:  { _ in
+            self.imageView.hideSkeleton()
+        })
+
+        //UDに保存
+        UserDefaultsModel.saveUrl(value: resultImageUrl)
     }
     
 }

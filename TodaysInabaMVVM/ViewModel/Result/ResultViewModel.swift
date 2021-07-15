@@ -19,7 +19,7 @@ class ResultViewModel {
     //other
     private let disposeBag = DisposeBag()
 
-    init(resultImageUrl: String?) {
+    init() {
         let store = ImageSearchStore.shard
         
         let _todaysInabaResponse = PublishRelay<ImageSearchResponse?>()

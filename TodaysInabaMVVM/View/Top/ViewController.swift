@@ -41,16 +41,16 @@ class ViewController: UIViewController, StoryboardInstantiatable {
             .subscribe(onNext: { [weak self] element in
                 print("vc_response: \(element)")
                 
-                let resultImageUrl = element.items[Int.random(in: 0...9)].link
+//                let resultImageUrl = element.items[Int.random(in: 0...9)].link
                 
                 let vc = ResultViewController.instantiate()
-                vc.viewModel = ResultViewModel(resultImageUrl: resultImageUrl)
+                vc.viewModel = ResultViewModel()
 //                vc.modalPresentationStyle = .overCurrentContext
                 self?.present(vc, animated: true, completion: {
                     
                     self?.nameTextField.text = ""
                     //UDに保存
-                    UserDefaultsModel.saveUrl(value: resultImageUrl)
+//                    UserDefaultsModel.saveUrl(value: resultImageUrl)
                     
                 })
                 
