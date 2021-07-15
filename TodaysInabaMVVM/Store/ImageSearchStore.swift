@@ -13,10 +13,10 @@ final class ImageSearchStore {
     
     static var shard = ImageSearchStore()
     
-    var response: Observable<ImageSearchResponse?> {
+    var imageSearchResponse: Observable<ImageSearchResponse?> {
         _response.asObservable()
     }
-    var responseValue: ImageSearchResponse? {
+    var imageSearchResponseValue: ImageSearchResponse? {
         _response.value
     }
     

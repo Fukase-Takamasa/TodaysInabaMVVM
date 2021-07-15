@@ -14,13 +14,22 @@ class ResultViewModel {
     //input
     
     //output
-    let resultImageUrl: String?
+    let todaysInabaResponse: Observable<ImageSearchResponse?>
     
+    //other
+    private let disposeBag = DisposeBag()
+
     init(resultImageUrl: String?) {
-        let disposeBag = DisposeBag()
+        let store = ImageSearchStore.shard
+        
+        let _todaysInabaResponse = PublishRelay<ImageSearchResponse?>()
+        self.todaysInabaResponse = _todaysInabaResponse.asObservable()
         
         //output
-        self.resultImageUrl = resultImageUrl
+        let _ = store.imageSearchResponse
+            .bind(to: _todaysInabaResponse)
+            .disposed(by: disposeBag)
+        
         
         //input
     }

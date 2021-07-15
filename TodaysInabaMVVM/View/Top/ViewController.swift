@@ -30,14 +30,14 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         nameTextField.returnKeyType = .done
         
         //input
-        nameTextField.rx.controlEvent(.editingDidEnd)
+        let _ = nameTextField.rx.controlEvent(.editingDidEnd)
             .withLatestFrom(nameTextField.rx.text.orEmpty)
             .subscribe(onNext: { [weak self] element in
                 self?.viewModel.userName.onNext(element)
             }).disposed(by: disposeBag)
         
         //output
-        viewModel.todaysInabaResponse
+        let _ = viewModel.todaysInabaResponse
             .subscribe(onNext: { [weak self] element in
                 print("vc_response: \(element)")
                 
@@ -56,7 +56,7 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                 
             }).disposed(by: disposeBag)
         
-        viewModel.error
+        let _ = viewModel.error
             .subscribe(onNext: { [weak self] element in
                 print("vc_error: \(element)")
                 
@@ -70,13 +70,13 @@ class ViewController: UIViewController, StoryboardInstantiatable {
             }).disposed(by: disposeBag)
         
         //通信状態に応じてインジケータを表示
-        viewModel.isFetching
+        let _ = viewModel.isFetching
             .subscribe(onNext: { element in
                 element ? HUD.show(.progress) : HUD.hide()
             }).disposed(by: disposeBag)
         
         //other
-        historyBotton.rx.tap
+        let _ = historyBotton.rx.tap
             .subscribe(onNext: { [weak self] element in
                 self?.present(UIHostingController(rootView: HistoryView()), animated: true)
             }).disposed(by: disposeBag)

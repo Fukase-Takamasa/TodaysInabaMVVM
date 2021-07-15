@@ -34,7 +34,7 @@ class ResultViewController: UIViewController, StoryboardInstantiatable {
         })
         
         //other
-        toTopPageButton.rx.tap
+        let _ = toTopPageButton.rx.tap
             .subscribe(onNext: { [weak self] element in
                 self?.dismiss(animated: true, completion: nil)
             }).disposed(by: disposeBag)

@@ -19,6 +19,7 @@ class TopViewModel {
     let error: Observable<Error>
     let isFetching: Observable<Bool>
     
+    //other
     private let disposeBag = DisposeBag()
 
     init() {
@@ -35,7 +36,7 @@ class TopViewModel {
         
         
         //output
-        let _ = store.response
+        let _ = store.imageSearchResponse
             .subscribe(onNext: { element in
                 _todaysInabaResponse.accept(element)
                 _isFetching.accept(false)
