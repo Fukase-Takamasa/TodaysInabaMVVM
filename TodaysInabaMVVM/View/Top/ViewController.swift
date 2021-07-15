@@ -15,8 +15,16 @@ import SwiftUI
 
 class ViewController: UIViewController, StoryboardInstantiatable {
     
+    //MARK: - DI
+    struct Dependency {
+        let viewModel: TopViewModel
+    }
+    func inject(_ dependency: Dependency) {
+        viewModel = dependency.viewModel
+    }
+    
     let disposeBag = DisposeBag()
-    let viewModel = TopViewModel()
+    var viewModel: TopViewModel!
     var datePicker = UIDatePicker()
     
     @IBOutlet weak var historyBotton: UIButton!
@@ -38,11 +46,13 @@ class ViewController: UIViewController, StoryboardInstantiatable {
             }).disposed(by: disposeBag)
         
         //output
+        //MARK: - レスポンス契機で遷移
         let _ = viewModel.todaysInabaResponse
             .subscribe(onNext: { [weak self] element in
                 guard let self = self else {return}
-                let vc = ResultViewController.instantiate()
-                vc.viewModel = ResultViewModel()
+                let viewModel = ResultViewModel()
+                let dependency = ResultViewController.Dependency(viewModel: viewModel)
+                let vc = ResultViewController.instantiate(with: dependency)
                 self.present(vc, animated: true, completion: {
                     self.nameTextField.text = ""
                 })

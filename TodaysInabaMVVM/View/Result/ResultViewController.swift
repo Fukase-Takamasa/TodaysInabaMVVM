@@ -14,9 +14,17 @@ import RxSwift
 import RxCocoa
 
 class ResultViewController: UIViewController, StoryboardInstantiatable {
+    
+    //MARK: - DI
+    struct Dependency {
+        let viewModel: ResultViewModel
+    }
+    func inject(_ dependency: Dependency) {
+        viewModel = dependency.viewModel
+    }
 
     let disposeBag = DisposeBag()
-    var viewModel: ResultViewModel?
+    var viewModel: ResultViewModel!
         
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var toTopPageButton: UIButton!
@@ -28,7 +36,7 @@ class ResultViewController: UIViewController, StoryboardInstantiatable {
         imageView.showAnimatedGradientSkeleton()
         
         //output
-        let _ = viewModel?.todaysInabaResponse
+        let _ = viewModel.todaysInabaResponse
             .subscribe(onNext: { [weak self] element in
                 guard let self = self else {return}
                 self.showRandomImage(response: element)
