@@ -13,10 +13,10 @@ final class Store {
     
     static var shard = Store()
     
-    var response: Observable<GoogleData?> {
+    var response: Observable<ImageSearchResponse?> {
         _response.asObservable()
     }
-    var responseValue: GoogleData? {
+    var responseValue: ImageSearchResponse? {
         _response.value
     }
     
@@ -24,7 +24,7 @@ final class Store {
         _error.asObservable()
     }
         
-    var _response = BehaviorRelay<GoogleData?>(value: nil)
+    var _response = BehaviorRelay<ImageSearchResponse?>(value: nil)
     var _error = PublishRelay<Error>()
     
     private let disposeBag = DisposeBag()

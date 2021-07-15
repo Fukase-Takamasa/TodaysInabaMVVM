@@ -1,5 +1,5 @@
 //
-//  GoogleData.swift
+//  ImageSearch.swift
 //  APIpractice2
 //
 //  Created by 深瀬 貴将 on 2019/12/06.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GoogleData: Codable {
+struct ImageSearchResponse: Codable {
     var items:[Items]
 }
 

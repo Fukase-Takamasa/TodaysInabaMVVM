@@ -1,5 +1,5 @@
 //
-//  API.swift
+//  ImageSearchAPI.swift
 //  TodaysInabaMVVM
 //
 //  Created by 深瀬 貴将 on 2020/09/27.
@@ -9,15 +9,15 @@ import Foundation
 import Moya
 
 //Moyaの設定
-enum API {
+enum ImageSearchAPI {
     case CustomSearch(query: String, startIndex: Int)
     //case CustomSearch
 }
 
-extension API: TargetType {
+extension ImageSearchAPI: TargetType {
     
     var baseURL: URL {
-        return URL(string: "https://www.googleapis.com")!
+        return URL(string: APIConst.BASE_URL)!
         //↓モックサーバーURL(stopLight起動してないと使えない）
         //return URL(string: "http://127.0.0.1:3100")!
     }
@@ -25,7 +25,7 @@ extension API: TargetType {
     var path: String {
         switch self {
         case .CustomSearch:
-            return "/customsearch/v1"
+            return APIConst.IMAGE_SEARCH
             //return "/v1/test"
         }
     }

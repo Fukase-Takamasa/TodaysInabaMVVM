@@ -15,7 +15,7 @@ class TopViewModel {
     let userName: AnyObserver<String>
     
     //output
-    let todaysInabaResponse: Observable<GoogleData>
+    let todaysInabaResponse: Observable<ImageSearchResponse?>
     let error: Observable<Error>
     let isFetching: Observable<Bool>
     
@@ -24,7 +24,7 @@ class TopViewModel {
     init() {
         let store = Store.shard
         
-        let _todaysInabaResponse = PublishRelay<GoogleData>()
+        let _todaysInabaResponse = PublishRelay<ImageSearchResponse?>()
         self.todaysInabaResponse = _todaysInabaResponse.asObservable()
         
         let _error = PublishRelay<Error>()
@@ -56,7 +56,7 @@ class TopViewModel {
             
             _isFetching.accept(true)
             
-            APIModel.getInaba()
+            ImageSearchRepository.getInaba()
         }
     }
 }
