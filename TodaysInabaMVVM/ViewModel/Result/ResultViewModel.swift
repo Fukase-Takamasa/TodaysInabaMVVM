@@ -22,7 +22,7 @@ class ResultViewModel {
     init() {
         let store = ImageSearchStore.shard
         
-        let _todaysInabaResponse = PublishRelay<ImageSearchResponse?>()
+        let _todaysInabaResponse = BehaviorRelay<ImageSearchResponse?>(value: nil)
         self.todaysInabaResponse = _todaysInabaResponse.asObservable()
         
         //output
