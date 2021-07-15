@@ -22,7 +22,7 @@ class TopViewModel {
     private let disposeBag = DisposeBag()
 
     init() {
-        let store = Store.shard
+        let store = ImageSearchStore.shard
         
         let _todaysInabaResponse = PublishRelay<ImageSearchResponse?>()
         self.todaysInabaResponse = _todaysInabaResponse.asObservable()
@@ -56,7 +56,7 @@ class TopViewModel {
             
             _isFetching.accept(true)
             
-            ImageSearchRepository.getInaba()
+            ImageSearchRepository.getRandomInabaImages()
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Store.swift
+//  ImageSearchStore.swift
 //  TodaysInabaMVVM
 //
 //  Created by 深瀬 貴将 on 2021/07/14.
@@ -9,9 +9,9 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class Store {
+final class ImageSearchStore {
     
-    static var shard = Store()
+    static var shard = ImageSearchStore()
     
     var response: Observable<ImageSearchResponse?> {
         _response.asObservable()

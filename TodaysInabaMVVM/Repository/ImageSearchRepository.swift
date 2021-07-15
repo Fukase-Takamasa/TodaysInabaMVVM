@@ -14,12 +14,12 @@ final class ImageSearchRepository {
     
     static let apiProvider = MoyaProvider<ImageSearchAPI>()
     private static let disposeBag = DisposeBag()
-    private static let store = Store.shard
+    private static let store = ImageSearchStore.shard
     
-    static func getInaba() {
-        apiProvider.rx.request(.CustomSearch(
-                query: "稲葉浩志" + ["かっこいい", "かわいい", "眼鏡", "へそ", "97年"].randomElement()!,
-                startIndex: Int.random(in: 1...10)))
+    
+    static func getRandomInabaImages() {
+        apiProvider.rx.request(.CustomSearch(query: TodaysInabaConst.randomSearchQuery,
+                                             startIndex: TodaysInabaConst.randomSearchIndex))
             .map { response in
                 try! JSONDecoder().decode(ImageSearchResponse.self, from: response.data)
             }.asObservable()
@@ -33,5 +33,5 @@ final class ImageSearchRepository {
                 }
             }).disposed(by: disposeBag)
     }
-        
+    
 }
