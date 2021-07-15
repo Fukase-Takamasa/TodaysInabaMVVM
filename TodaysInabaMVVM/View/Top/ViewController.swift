@@ -33,21 +33,24 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         let _ = nameTextField.rx.controlEvent(.editingDidEnd)
             .withLatestFrom(nameTextField.rx.text.orEmpty)
             .subscribe(onNext: { [weak self] element in
-                self?.viewModel.userName.onNext(element)
+                guard let self = self else {return}
+                self.viewModel.userName.onNext(element)
             }).disposed(by: disposeBag)
         
         //output
         let _ = viewModel.todaysInabaResponse
             .subscribe(onNext: { [weak self] element in
+                guard let self = self else {return}
                 let vc = ResultViewController.instantiate()
                 vc.viewModel = ResultViewModel()
-                self?.present(vc, animated: true, completion: {
-                    self?.nameTextField.text = ""
+                self.present(vc, animated: true, completion: {
+                    self.nameTextField.text = ""
                 })
             }).disposed(by: disposeBag)
         
         let _ = viewModel.error
             .subscribe(onNext: { [weak self] element in
+                guard let self = self else {return}
                 print("vc_error: \(element)")
                 
                 let alert = UIAlertController(title: "通信に失敗しました。",
@@ -55,7 +58,7 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                                               preferredStyle: .alert)
                 let ok = UIAlertAction(title: "閉じる", style: .default, handler: nil)
                 alert.addAction(ok)
-                self?.present(alert, animated: true)
+                self.present(alert, animated: true)
                 
             }).disposed(by: disposeBag)
         
@@ -68,7 +71,8 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         //other
         let _ = historyBotton.rx.tap
             .subscribe(onNext: { [weak self] element in
-                self?.present(UIHostingController(rootView: HistoryView()), animated: true)
+                guard let self = self else {return}
+                self.present(UIHostingController(rootView: HistoryView()), animated: true)
             }).disposed(by: disposeBag)
     }
     
