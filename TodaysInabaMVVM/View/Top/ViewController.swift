@@ -15,16 +15,8 @@ import SwiftUI
 
 class ViewController: UIViewController, StoryboardInstantiatable {
     
-    //MARK: - DI
-    struct Dependency {
-        let viewModel: TopViewModel
-    }
-    func inject(_ dependency: Dependency) {
-        viewModel = dependency.viewModel
-    }
-    
     let disposeBag = DisposeBag()
-    var viewModel: TopViewModel!
+    var viewModel = TopViewModel()
     var datePicker = UIDatePicker()
     
     @IBOutlet weak var historyBotton: UIButton!

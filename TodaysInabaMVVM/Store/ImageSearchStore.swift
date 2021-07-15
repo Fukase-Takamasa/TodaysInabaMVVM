@@ -13,9 +13,11 @@ final class ImageSearchStore {
     
     static var shard = ImageSearchStore()
     
+    //Observableとして受け取りたい時用
     var imageSearchResponse: Observable<ImageSearchResponse?> {
         _response.asObservable()
     }
+    //Subscribeせずに値を使いたい時用（RxじゃないtableViewなどでVCから参照する時や、VM内でidなどを使いたい時用）
     var imageSearchResponseValue: ImageSearchResponse? {
         _response.value
     }

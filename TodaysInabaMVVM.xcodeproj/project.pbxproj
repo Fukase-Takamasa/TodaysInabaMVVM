@@ -156,7 +156,7 @@
 			children = (
 				59358CF125205E2E004E39F7 /* AppDelegate.swift */,
 				59358CF325205E2E004E39F7 /* SceneDelegate.swift */,
-				59B3834F2531FF7100EA3E20 /* Extension+Storyboard.swift */,
+				59B320AC26A02AA60036F35F /* Extension */,
 				5973C62E269FDFFB0076B0B4 /* Const */,
 				5973C62D269FDFE40076B0B4 /* API */,
 				5973C62C269FDFD80076B0B4 /* Entity */,
@@ -307,6 +307,14 @@
 				5937E216269DE9D100189BD6 /* ImageSearchStore.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		59B320AC26A02AA60036F35F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				59B3834F2531FF7100EA3E20 /* Extension+Storyboard.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		63ADC2091D4A969024E1CDA7 /* Pods */ = {
