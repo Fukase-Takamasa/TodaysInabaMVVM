@@ -13,6 +13,7 @@ import InstantiateStandard
 import RxSwift
 import RxCocoa
 
+//結果画面
 class ResultViewController: UIViewController, StoryboardInstantiatable {
     
     //MARK: - DI
@@ -36,6 +37,7 @@ class ResultViewController: UIViewController, StoryboardInstantiatable {
         imageView.showAnimatedGradientSkeleton()
         
         //output
+        //実際にレスポンスの中身を使って表示処理
         let _ = viewModel.todaysInabaResponse
             .subscribe(onNext: { [weak self] element in
                 guard let self = self else {return}
@@ -48,6 +50,8 @@ class ResultViewController: UIViewController, StoryboardInstantiatable {
                 guard let self = self else {return}
                 self.dismiss(animated: true, completion: nil)
             }).disposed(by: disposeBag)
+        
+        //APIを叩いたりしないのでerrorやisFetchingの監視は不要。
         
     }
     

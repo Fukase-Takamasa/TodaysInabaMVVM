@@ -7,6 +7,7 @@
 
 import Foundation
 
+///ここの画面（VC）だけSwiftUI使っちゃってるのでこの画面はお気になさらず
 class HistoryViewModel: ObservableObject {
     
     //input

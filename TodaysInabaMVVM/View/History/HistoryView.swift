@@ -8,6 +8,7 @@
 import SwiftUI
 import struct Kingfisher.KFImage
 
+///ここだけSwiftUI使っちゃってるのでこの画面はお気になさらず
 struct HistoryView: View {
     
     @ObservedObject var viewModel = HistoryViewModel()
